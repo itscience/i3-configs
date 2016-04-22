@@ -1,0 +1,14 @@
+
+# screenshots #
+"scrot -z 'screenshot%y%m%d%H%S.png' -e 'mv $f ~/Pictures/'"
+	m:0x00 + c:107
+
+# volume control #
+"pamixer --increase 5"
+	m:0x00 + c:123
+
+"pamixer --decrease 5"
+	m:0x00 + c:122
+	
+"pamixer --toggle-mute "
+	m:0x10 + c:121
