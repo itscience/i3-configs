@@ -1,0 +1,1 @@
+urxvt -pixmap "`find ~/.urxvt -name 'BKimg*' | sort -R | head -n 1`;style=tiled"

@@ -1,0 +1,34 @@
+#!/bin/bash
+###     last updated - 17.01.16 (~/.watermark.sh x7) ###
+###########################################
+# REQUIRES:    ImageMagick, coreutils
+# VERSION:    1.0
+# DESCRIPTION:    A script to add a watermark and overwrite all images in a directory.
+#
+# This script will watermark all of the images in a directory. Warning! This will overwrite the files.
+#   gravity         NorthWest, North, NorthEast, West, Center,
+#                   East, SouthWest, South, or SouthEast
+
+###########################################
+# Initialize variables
+WM=$HOME/Pictures/watermark.png  # This is the path to your watermark image
+SCALE=50                          # This sets the scale % of your watermark image
+
+# Warning
+echo -e "This will overwrite all of the images in this directory."\\n"Are you sure want to continue? {Y/n}"
+read REPLY
+
+if
+	[ "$REPLY" != "n" ] && [ "$REPLY" != "N" ]
+then
+	file -i * | grep image | awk -F':' '{ print $1 }' | while read IMAGE
+		do
+			echo Watermarking $IMAGE
+			composite -dissolve 40% -gravity center -quality 100 \( $WM -resize $SCALE% \) "$IMAGE" "$IMAGE"
+		done
+else
+	echo exiting
+	exit 0
+fi
+
+exit 0

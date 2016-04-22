@@ -1,0 +1,253 @@
+### Please see http://i3wm.org/docs/userguide.html for a complete reference! ###
+
+## set the MOD key ##
+set $mod Mod4
+
+set $bg_color		#2f343f
+set $activate		#8dc21f
+set $lite_txt		#f3f4f5
+set $dark_txt		#888888
+set $alertion		#ff0000
+set $not_used		#000000
+
+set $workspace1		1]
+set $workspace2		2]
+set $workspace3		3]
+set $workspace4		4]
+set $workspace5		5]
+set $workspace6		6]
+set $workspace7		7]
+set $workspace8		8]
+set $workspace9		9]
+set $workspace0		x]
+
+## This font is widely installed, provides lots of unicode glyphs, right-to-left text rendering and scalability on retina/hidpi displays (thanks to pango). ##
+font pango:DejaVu Sans Mono 8
+
+## Use Mouse+$mod to drag floating windows to their wanted position ##
+floating_modifier $mod
+
+for_window [class="feh"] floating enable
+for_window [class="vlc"] floating enable
+for_window [class="mplayer"] floating enable
+
+## kill focused window ##
+bindsym $mod+Shift+q kill
+
+## change focus ##
+bindsym $mod+h focus left
+bindsym $mod+Left focus left
+bindsym $mod+j focus down
+bindsym $mod+Down focus down
+bindsym $mod+k focus up
+bindsym $mod+Up focus up
+bindsym $mod+l focus right
+bindsym $mod+Right focus right
+
+## move focused window ##
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+Right move right
+
+## window direction split orientation ##
+bindsym $mod+c split h
+bindsym $mod+v split v
+
+## fullscreen mode for the focused container ##
+bindsym $mod+f fullscreen toggle
+
+## change urxvt container layout (stacked, tabbed, toggle split) ##
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+## toggle tiling / floating ##
+bindsym $mod+Shift+space floating toggle
+
+## change focus between tiling / floating windows ##
+bindsym $mod+space focus mode_toggle
+
+## focus the parent container ##
+#bindsym $mod+a focus parent
+
+## focus the child container ##
+#bindsym $mod+d focus child
+
+for_window [class="^.*"] border pixel 0
+
+## workspace keys ##
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+0 workspace $workspace0
+bindsym $mod+Shift+0 move container to workspace $workspace0
+
+#bindsym $mod+x workspace next
+#bindsym $mod+z workspace prev
+
+## restart, reset, logout i3 keys ##
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+## resize window (you can also use the mouse for that) ##
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+	      }
+bindsym $mod+r mode "resize"
+
+### $i3-theme-window ###
+## status bar ##
+
+bar {
+     position top
+     status_command i3blocks
+     colors {
+             background		 $bg_color
+             statusline		 $lite_txt
+             separator		 $lite_txt
+
+## Taskbar tabs ##
+
+## class                   	 border    backgr.   text   ##
+        focused_workspace  	 $bg_color $activate $lite_txt
+        active_workspace   	 $bg_color $bg_color $lite_txt
+        inactive_workspace 	 $bg_color $bg_color $dark_txt
+        urgent_workspace  	 $bg_color $alertion $lite_txt
+            }
+    }
+
+## window boarders ##
+
+## class 	                 border    backgr.   text      indicator ##
+	client.focused           $activate $activate $lite_txt $not_used
+	client.focused_inactive  $bg_color $bg_color $dark_txt $not_used
+	client.unfocused         $bg_color $bg_color $dark_txt $not_used
+	client.urgent            $alertion $alertion $lite_txt $not_used
+
+hide_edge_borders both
+
+### third-party options ###
+## volume control ##
+#bindsym $mod2+XF86AudioRaiseVolume exec pamixer --increase 5
+#bindsym $mod2+XF86AudioLowerVolume exec pamixer --decrease 5
+#bindsym $m:0x10+c:121 exec amixer -D pulse set Master 1+ toggle
+
+### Program shotcuts ###
+
+## open terminal ##
+bindsym $mod+Return exec --no-startup-id ~/.urxvt/wallpaper
+
+## start dmenu ##
+bindsym $mod+d exec --no-startup-id dmenu_run -nb "$bg_color" -nf "$dark_txt" -sb "$activate" -sf "$lite_txt"
+
+## dmenu style file manager ##
+bindsym $mod+m exec --no-startup-id dmenfm -nb "$bg_color" -nf "$lite_txt" -sb "$activate"
+
+## dmenu style network client ##
+bindsym $mod+n exec --no-startup-id nmcli_dmenu
+
+## browser setup ##
+for_window [window_role="pop-up"] floating enable;border normal
+for_window [window_role="task_dialog"] floating enable;border normal
+
+## Menus ##
+set $firstmenu "Select: [P]ower [S]oftware [G]ames (escape to cancel) "
+mode $firstmenu	{
+		 bindsym p	mode $sysmenu
+		 bindsym s	mode $softmenu
+		 bindsym g	mode $gamemenu
+		 bindsym Return	mode "default"
+		 bindsym Escape	mode "default"
+		 bindsym Space	mode "default"
+		}
+
+	## Software menu ##
+	set  $softmenu   "Software:  [F]ile manager  [B]rowser "
+	bindsym $mod+Shift+s			mode $softmenu
+	mode $softmenu	{
+			 bindsym f	exec spacefm, mode "default"
+			 bindsym b	exec firefox, mode "default"
+			 bindsym Return	mode "default"
+			 bindsym Escape	mode "default"
+			 bindsym Space	mode "default"
+			}
+
+	## Game menu ##
+	bindsym $mod+Shift+a			mode $gamemenu
+	set  $gamemenu   "Games: [D]iablo 2 Doo[m]... "
+	mode $gamemenu	{
+			 bindsym d	exec /usr/share/playonlinux/playonlinux --run "Diablo 2" %F, mode "default"
+	 		 bindsym Return	mode "default"
+			 bindsym Escape	mode "default"
+			 bindsym Space	mode "default"
+			}
+
+	## Power menu ##
+	bindsym $mod+Shift+Escape	mode $sysmenu
+	set  $sysmenu    "System:  [P]oweroff  re[B]oot  [L]ock  logou[T] "
+	mode $sysmenu 	{
+			 bindsym p	mode $offmenu
+			 bindsym b	mode $rebmenu 
+			 bindsym l	exec slock, mode "default"
+			 bindsym t	exec --no-startup-id i3-msg exit, mode "default"
+			 bindsym Return	mode "default"
+			 bindsym Escape	mode "default"
+			 bindsym Space	mode "default"
+			}
+
+		## Confirm shutdown ##
+		set  $offmenu    "System: Confirm shutdown? [Y]es [N]o "
+		mode $offmenu 	{
+				 bindsym y	exec shutdown -P now
+				 bindsym Return	mode "default"
+				 bindsym Escape	mode "default"
+				 bindsym Space	mode "default"
+				 bindsym n	mode "default"
+				}
+
+		## Confirm Reboot ##
+		set  $rebmenu    "System: Confirm reboot? [Y]es [N]o "
+		mode $rebmenu 	{
+				 bindsym y	exec exec shutdown -r now
+				 bindsym Return	mode "default"
+				 bindsym Escape	mode "default"
+				 bindsym Space	mode "default"
+				 bindsym n	mode "default"
+				}
+
+### startup with i3wm ###
+exec setxkbmap gb &
+exec --no-startup-id lxpanel-gtk3 --disable-wm-check
+exec feh --randomize --bg-scale ~/Pictures/Wallpaper/* &
+exec --no-startup-id ~/.urxvt/wallpaper &
+exec_always compton -f &

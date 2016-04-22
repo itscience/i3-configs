@@ -1,0 +1,16 @@
+show_hidden=1
+show_backup=0
+always_open_dirs=0
+always_open_files=0
+open_last=1
+dmenu_caseinsens=1
+dmenu_onbottom=0
+dmenu_bg='#2f343f'
+dmenu_fg='#888888'
+dmenu_sbg='#8dc21f'
+dmenu_sfg='#f3f4f5'
+editor="xfce4-terminal -x nano"
+executor="autoprogramselect"
+filemanager="xterm -d"
+last_dir="/home/edwooger"
+

@@ -1,0 +1,81 @@
+URxvt*urgentOnBell:		false
+URxvt*visualBell:		false
+URxvt*cursorBlink:		true
+URxvt*cursorUnderline:		false
+URxvt*pointerBlank:		true
+URxvt*pointerColorBackground:	red
+URxvt*cursorColor:		#8dc21f
+URxvt*cursorColor2:		#f3f4f5
+URxvt*pointerColorForeground:	yellow
+URxvt*highlightColor:		#000000
+URxvt*highlightTextColor:	#f3f4f5
+
+URxvt*buffered:			true
+URxvt*saveLines:		2500
+
+URxvt*scrollBar:		false
+URxvt*mouseWheelScrollPage:	true
+Urxvt*secondaryScroll:		true # Enable Shift-PageUp/Down in screen
+
+
+URxvt*colorUL:			yellow
+URxvt*underlineColor:		white
+URxvt*urlLauncher:		/usr/bin/firefox
+
+URxvt*foreground:		#f3f4f5
+URxvt*transparent:		true
+URxvt*shading:			100
+
+URxvt*internalBorder:		4
+URxvt*borderColor:		#2f343f
+URxvt*borderLess:		false
+URxvt*externalBorder:		0
+
+URxvt*font:			xft:MonoSpace:style=Regular:size=12
+!URxvt*boldFont:		-xos4-terminus-bold-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:bold:pixelsize:12
+!URxvt*italicFont:		xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=12
+!URxvt*boldItalicFont:		xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:pixelsize=12
+URxvt*depth:			32
+URxvt*allow_bold:		true
+!URxvt*colorBD:			green
+
+!! black dark/light
+URxvt*color0:			#000000
+URxvt*color8:			#333333
+
+!! red dark/light
+!URxvt*color1:			#ff0000
+URxvt*color1:			#ffa500
+URxvt*color9:			#ffa500
+
+!! green dark/light
+!URxvt*color2:			#008000
+URxvt*color2:			#1dff00
+URxvt*color10:			#1dff00
+
+!! yellow dark/light
+!URxvt*color3:			#b3b300
+URxvt*color3:			#ffff00
+URxvt*color11:			#ffff00
+
+!! blue dark/light
+!URxvt*color4:			#0000ff
+URxvt*color4:			#0080ff
+URxvt*color12:			#0080ff
+
+!! magenta dark/light
+!URxvt*color5:			#ff00ff
+URxvt*color5:			#ee82ee
+URxvt*color13:			#ee82ee
+
+!! cyan dark/light
+!URxvt*color6:			#00b3b3
+URxvt*color6:			#00ffff
+URxvt*color14:			#00ffff
+
+!! white dark/light
+!URxvt*color7:			#cccccc
+URxvt*color7:			#ffffff
+URxvt*color15:			#ffffff
+
+URxvt*inheritPixmap:		true
